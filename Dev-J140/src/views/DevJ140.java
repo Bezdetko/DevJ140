@@ -81,11 +81,21 @@ public class DevJ140 extends Application {
         
         scene = new Scene(root, 300, 250);
         
+        scene.getStylesheets().add("file:MyCSS.css");
+        root.getStyleClass().add("mainPane");
+//        scene.getStylesheets().add("file:MyCSS.css");
+//        scene.getStylesheets();
+        
+
+//        root.getStyleClass().addAll("pane","grid");
+        
+        
         primaryStage.setTitle("Authorization");
         primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
+    
 
     /**
      * @param args the command line arguments

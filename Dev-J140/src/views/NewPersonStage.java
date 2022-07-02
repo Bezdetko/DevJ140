@@ -129,6 +129,10 @@ public class NewPersonStage extends Stage {
         
         
         Scene scene = new Scene(root, 300 , 200);
+        if(TableStage.isDark()){
+            root.getStyleClass().add("pane");
+            scene.getStylesheets().add("file:MyCSS.css");
+        }
         
         this.setTitle("New Person");
         this.setScene(scene);

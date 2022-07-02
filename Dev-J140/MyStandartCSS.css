@@ -1,0 +1,64 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24.02.2022, 19:25:01
+    Author     : Александр
+*/
+
+/*.region {
+    -fx-background-color: rgb(47, 49, 54);
+}*/
+
+/*.mainPane {
+    -fx-background-color: rgb(47, 49, 54);
+}
+
+.label {
+   -fx-text-fill: rgb(188, 188, 188);
+}
+
+.button {
+    -fx-text-fill: rgb(188, 188, 188);
+    -fx-color: rgb(54, 57, 63);
+    -fx-border-color: rgb(100, 100, 100);
+}
+
+.text-field{
+    -fx-background-color: rgb(64, 68, 75);
+    -fx-text-fill: rgb(188, 188, 188);
+}
+
+.titled-pane
+{
+    -fx-background-color: rgb(188, 188, 188);
+}
+
+.table-view{
+    -fx-background-color: rgb(188, 188, 188);
+}*/
+
+.buttonPane {
+    -fx-alignment: CENTER;
+}
+/*.node{
+    color: rgb(47, 49, 54);
+    background-color: rgb(47, 49, 54);
+}
+
+.region{
+    color: red;
+    background-color: red;
+}*/
+
+/*.grid {
+    -fx-background-color: blue;*/
+/*    -fx-background-radius: 5.0;
+    -fx-background-insets: 0.0 5.0 0.0 5.0;
+    -fx-padding: 10;
+    -fx-hgap: 10;
+    -fx-vgap: 10;*/
+/*}*/
+
