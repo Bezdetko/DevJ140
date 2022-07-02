@@ -1,0 +1,3 @@
+url=jdbc:derby://localhost:1527/DevJ140
+user=root
+psw=root

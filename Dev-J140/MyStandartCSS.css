@@ -1,0 +1,19 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 24.02.2022, 19:25:01
+    Author     : Александр
+*/
+
+
+.buttonPane {
+    
+    -fx-alignment: CENTER;
+    -fx-hgap: 10pt;
+    -fx-vgap: 10pt;
+}
+
+
