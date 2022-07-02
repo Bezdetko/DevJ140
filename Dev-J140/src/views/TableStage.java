@@ -35,14 +35,6 @@ import model.Person;
  * @author Александр
  */
 public class TableStage extends Stage {
-    
-    
-//    private static void changeStylesheets (Scene mainScene){
-//        if (style.equals(STYLESHEET_MODENA)) style = "file:default.css";
-//        else style = STYLESHEET_MODENA;
-//        mainScene.getStylesheets().clear();
-//        mainScene.getStylesheets().add(style);
-//    }
         
     private static Scene scene;
     
@@ -57,7 +49,6 @@ public class TableStage extends Stage {
     
     
     public void init(){
-//        TableView <Person> tableView = new TableView<>();
         tableView = new TableView<>();
         
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
