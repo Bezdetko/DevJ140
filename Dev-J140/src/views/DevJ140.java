@@ -62,7 +62,6 @@ public class DevJ140 extends Application {
             String pass = passField.getText();
             UserData user = new UserData(name, pass);
             if (!user.checkPassword())infoLabel.setText("Password is not valid");
-//            else infoLabel.setText("Password is valid");
             else {
             TableStage tableStage = new TableStage();
             tableStage.init();
@@ -81,13 +80,6 @@ public class DevJ140 extends Application {
         
         scene = new Scene(root, 300, 250);
         
-        scene.getStylesheets().add("file:MyCSS.css");
-        root.getStyleClass().add("mainPane");
-//        scene.getStylesheets().add("file:MyCSS.css");
-//        scene.getStylesheets();
-        
-
-//        root.getStyleClass().addAll("pane","grid");
         
         
         primaryStage.setTitle("Authorization");

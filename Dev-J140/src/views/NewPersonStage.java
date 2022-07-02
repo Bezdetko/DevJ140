@@ -24,39 +24,14 @@ import controller.DbManager;
  * @author Александр
  */
 public class NewPersonStage extends Stage {
+    
+    protected static Scene scene;
+    private FlowPane buttonPane;
+    
     public void init(){
         VBox root = new VBox();
         root.setSpacing(10);
-//        
-//        FlowPane fistNamePane = new FlowPane();
-//        Label fistNameLabel = new Label("Fist name:");
-//        TextField fistNameField = new TextField();
-//        fistNamePane.getChildren().add(fistNameLabel);
-//        fistNamePane.getChildren().add(fistNameField);
-//        
-//        FlowPane lastNamePane = new FlowPane();
-//        Label lastNameLabel = new Label("Last name:");
-//        TextField lastNameField = new TextField();
-//        lastNamePane.getChildren().add(lastNameLabel);
-//        lastNamePane.getChildren().add(lastNameField);
-//        
-//        FlowPane birthDatePane = new FlowPane();
-//        Label birthDateLabel = new Label("Birth date:");
-//        DatePicker dateField = new DatePicker();
-//        birthDatePane.getChildren().add(birthDateLabel);
-//        birthDatePane.getChildren().add(dateField);
-//        
-//        root.getChildren().add(fistNamePane);
-//        root.getChildren().add(lastNamePane);
-//        root.getChildren().add(birthDatePane);
-//        
-//        Scene scene = new Scene(root, 300 , 300);
 
-
-//        GridPane root = new GridPane();
-//        root.setHgap(10);
-//        root.setVgap(10);
-        
         GridPane personPane = new GridPane();
         personPane.setHgap(10);
         personPane.setVgap(10);
@@ -80,17 +55,14 @@ public class NewPersonStage extends Stage {
         DatePicker dateField = new DatePicker();
         personPane.add( birthDateLabel, 0, 2);   
         personPane.add( dateField, 1, 2);
-        
-//        root.getChildren().add(personPane);
+     
         
         
         Label infoLabel = new Label();
-//        root.getChildren().add(infoLabel);
         
         
-        
-        
-        FlowPane buttonPane = new FlowPane();
+       
+        buttonPane = new FlowPane();
         buttonPane.setAlignment(Pos.CENTER);
         buttonPane.setHgap(10);               
         
@@ -127,19 +99,34 @@ public class NewPersonStage extends Stage {
         root.getChildren().add(buttonPane);
 
         
-        
-        Scene scene = new Scene(root, 300 , 200);
+        scene = new Scene(root, 300 , 200);
         if(TableStage.isDark()){
-            root.getStyleClass().add("pane");
-            scene.getStylesheets().add("file:MyCSS.css");
+             setCustomCSS();
+        } else {
+            setStandartCSS();
         }
+        
+        
+        
         
         this.setTitle("New Person");
         this.setScene(scene);
         this.setResizable(false);
-        this.show();
         
-                
+        //            this.initOwner(newPersonStage);
+//            this.initModality(Modality.WINDOW_MODAL);
+//            this.showAndWait();
+        
+        this.show();                        
     }
+    
+        private void setStandartCSS(){
+        scene.getStylesheets().add("file:MyStandartCSS.css");
+        buttonPane.getStyleClass().add("buttonPane");    
+    }
+        private void setCustomCSS(){
+        scene.getStylesheets().add("file:MyCSS.css");
+        buttonPane.getStyleClass().add("buttonPane");       
+    }    
     
 }

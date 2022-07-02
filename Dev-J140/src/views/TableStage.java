@@ -27,6 +27,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.RadioMenuItem;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
+import javafx.stage.Modality;
 import model.Person;
 
 /**
@@ -43,14 +44,21 @@ public class TableStage extends Stage {
 //        mainScene.getStylesheets().add(style);
 //    }
         
-    private static Scene mainScene;
+    private static Scene scene;
     
     private static RadioMenuItem standartTheme;
     private static RadioMenuItem customTheme;
     
+    private TableView <Person> tableView;
+    private BorderPane root;
+    private MenuBar menuBar;
+    private Menu view;
+    private FlowPane buttonPane;
+    
     
     public void init(){
-        TableView <Person> tableView = new TableView<>();
+//        TableView <Person> tableView = new TableView<>();
+        tableView = new TableView<>();
         
         tableView.setColumnResizePolicy(TableView.CONSTRAINED_RESIZE_POLICY);
         
@@ -78,44 +86,15 @@ public class TableStage extends Stage {
         tableView.setItems(DbManager.getPersonList());
         
 
-//        VBox root = new VBox();
-//        
-//        root.getChildren().add(tableView);
-//        
-//        FlowPane buttonPane = new FlowPane();
-//        buttonPane.setAlignment(Pos.CENTER);
-//        root.getChildren().add(buttonPane);
-//        
-//        Button addPerson = new Button("New Person");
-//        buttonPane.getChildren().add(addPerson);
-//        addPerson.setOnAction(e -> {
-//            NewPersonStage newPersonStage = new NewPersonStage();
-//            newPersonStage.init();            
-//        });
-//        
-//        Button updateTabel = new Button("Update Table");
-//        buttonPane.getChildren().add(updateTabel);
-//        addPerson.setOnAction(e -> {
-//            DbManager.getPersonList();
-//        });       
-//        
-//        Scene mainScene = new Scene(root, 600, 500);
-//        
-//        this.setTitle("Person Table");
-//        this.setScene(mainScene);
-//        this.show();
+        root = new BorderPane();
 
-        BorderPane root = new BorderPane();
-         // Menu
-        MenuBar bar = new MenuBar();
+        menuBar = new MenuBar();
+
+        view = new Menu("View");
         
-        Menu view = new Menu("View");
-
-//        RadioMenuItem standartTheme = new RadioMenuItem("Standart Theme");
-//        RadioMenuItem customTheme = new RadioMenuItem("Custom Theme");
 
         standartTheme = new RadioMenuItem("Standart Theme");
-        customTheme = new RadioMenuItem("Custom Theme");
+        customTheme = new RadioMenuItem("Dark Theme");
         
         ToggleGroup toggleGroup = new ToggleGroup();
         toggleGroup.getToggles().add(standartTheme);
@@ -126,28 +105,27 @@ public class TableStage extends Stage {
         
         
         standartTheme.setSelected(true);
+       
+        
 
         
-        bar.getMenus().add(view);
+        menuBar.getMenus().add(view);
         
         
-        root.setTop(bar);
+        root.setTop(menuBar);
         
         
         
         root.setCenter(tableView);
         
-        FlowPane buttonPane = new FlowPane();
-        buttonPane.setHgap(10);
-        buttonPane.setVgap(10);
-        buttonPane.setAlignment(Pos.CENTER);
+        buttonPane = new FlowPane();
         root.setBottom(buttonPane);
         
         Button addPerson = new Button("New Person");
         buttonPane.getChildren().add(addPerson);
         addPerson.setOnAction(e -> {
             NewPersonStage newPersonStage = new NewPersonStage();
-            newPersonStage.init();            
+            newPersonStage.init();
         });
         
         Button updateTabel = new Button("Update Table");
@@ -156,37 +134,54 @@ public class TableStage extends Stage {
             DbManager.getPersonList();
         });
         
-        mainScene = new Scene(root, 600, 500);
-//                Scene scene = new Scene(root, 600, 500);
+        scene = new Scene(root, 600, 500);
     
         
         
         standartTheme.setOnAction(e->{
-                            mainScene.getStylesheets().clear();
+                            scene.getStylesheets().clear();
+                            setStandartCSS();
                     
         });
         
         customTheme.setOnAction(e->{
-                 root.getStyleClass().add("pane");
-                 mainScene.getStylesheets().add("file:MyCSS.css");
-//                 root.getStyleClass().add("pane");
+                 scene.getStylesheets().add("file:MyCSS.css");
+                 root.getStyleClass().add("mainPane");
+                 buttonPane.getStyleClass().add("buttonPane");
         });
+              
         
+
+        if(standartTheme.isSelected()) {
+            setStandartCSS();
+        }
         
-               
         this.setMinWidth(250);
         this.setMinHeight(250);
         this.setTitle("Person Table");
-        this.setScene(mainScene);
+        this.setScene(scene);
         this.show();
     }
     
     
     protected static ObservableList<String> getCSS(){
-        return mainScene.getStylesheets();        
+        return scene.getStylesheets();        
     }
+    
+    private void setStandartCSS(){
+        scene.getStylesheets().add("file:MyStandartCSS.css");
+        root.getStyleClass().add("mainPane");
+        buttonPane.getStyleClass().add("buttonPane");       
+}
+    
+    private void setCustomCSS(){
+        scene.getStylesheets().add("file:MyCSS.css");
+        buttonPane.getStyleClass().add("buttonPane");       
+}    
     
     protected static boolean isDark(){
         return customTheme.isSelected();
     }
+    
+    
 }

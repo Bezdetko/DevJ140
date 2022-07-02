@@ -8,9 +8,10 @@ and open the template in the editor.
     Author     : Александр
 */
 
-/*.region {
+
+.root{
     -fx-background-color: rgb(47, 49, 54);
-}*/
+}
 
 .mainPane {
     -fx-background-color: rgb(47, 49, 54);
@@ -26,15 +27,12 @@ and open the template in the editor.
     -fx-border-color: rgb(100, 100, 100);
 }
 
+
 .text-field{
     -fx-background-color: rgb(64, 68, 75);
     -fx-text-fill: rgb(188, 188, 188);
 }
 
-/*.titled-pane
-{
-    -fx-background-color: rgb(188, 188, 188);
-}*/
 
 .table-view{
     -fx-background-color: rgb(188, 188, 188);
@@ -42,23 +40,94 @@ and open the template in the editor.
 
 .buttonPane {
     -fx-alignment: CENTER;
-}
-/*.node{
-    color: rgb(47, 49, 54);
-    background-color: rgb(47, 49, 54);
+    -fx-hgap: 10pt;;
+    -fx-vgap: 10pt;;
 }
 
-.region{
-    color: red;
-    background-color: red;
-}*/
+.table-view {
+    -fx-base: rgb(41, 43, 47);
+    -fx-control-inner-background: blue;
+    -fx-background-color: black;
+    -fx-table-cell-border-color: black;
+    -fx-table-header-border-color: red;
+}
 
-/*.grid {
-    -fx-background-color: blue;*/
-/*    -fx-background-radius: 5.0;
-    -fx-background-insets: 0.0 5.0 0.0 5.0;
-    -fx-padding: 10;
-    -fx-hgap: 10;
-    -fx-vgap: 10;*/
-/*}*/
 
+.table-view .column-header-background .label{
+    -fx-background-color:  rgb(41, 43, 47);
+    -fx-text-fill: rgb(188, 188, 188);
+}
+
+.table-view .table-cell{
+    -fx-text-fill: rgb(188, 188, 188);
+}
+
+.table-row-cell:even{
+    -fx-background-color: -fx-table-cell-border-color, rgb(64, 68, 75);
+}
+
+.table-view .table-cell{
+    -fx-text-fill: rgb(188, 188, 188);
+}
+
+.table-row-cell:odd{
+    -fx-background-color: -fx-table-cell-border-color, rgb(47, 49, 54);
+}
+
+.table-row-cell:selected {
+    -fx-background-color: rgb(50, 53, 59);
+}
+
+
+.scroll-bar {
+    -fx-background-color: rgb(46, 51, 56);
+}
+.scroll-bar .thumb {
+    -fx-background-color: rgb(32, 34, 47);
+}
+
+.scroll-bar .increment-arrow{
+    -fx-background-color: rgb(188, 188, 188);  
+}
+
+.scroll-bar .decrement-arrow{
+    -fx-background-color: rgb(188, 188, 188);  
+}
+
+.menu-bar{
+    -fx-background-color: rgb(64, 68, 75);
+}
+
+.menu:hover {
+    -fx-background-color: rgb(32, 34, 47);
+}
+
+.menu:armed {
+    -fx-background-color: rgb(32, 34, 47);
+}
+
+.menu:showing {
+    -fx-background-color: rgb(32, 34, 47);
+}
+
+.context-menu{
+    -fx-background-color: rgb(32, 34, 47);
+}
+
+.menu-item:focused{
+    -fx-background-color: rgb(60, 63, 69);
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: rgb(32, 34, 47);
+}
+
+
+.date-picker-popup > * > .today {
+    -fx-background-color: plum;
+}
+.date-picker-popup .date-cell {
+    -fx-text-fill: rgb(188, 188, 188);
+    -fx-background-color: rgb(64, 68, 75);
+    -fx-border-color: black;
+}
